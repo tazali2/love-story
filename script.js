@@ -1,4 +1,11 @@
-let clicks = 0;
+let clickedScenes = {
+  pingpong: false,
+  uno: false,
+  car: false,
+  karaoke: false,
+  dinner: false
+};
+
 let musicStarted = false;
 
 function handleClick(scene) {
@@ -10,49 +17,54 @@ function handleClick(scene) {
     musicStarted = true;
   }
 
+  // Show bubble
   bubble.classList.remove("hidden");
 
   if (scene === "pingpong") {
     bubble.style.top = "20%";
     bubble.style.left = "15%";
-    bubble.innerText = "you think you're good? 😭";
+    bubble.innerText = "You think you're good? 😭";
     document.getElementById("pingSound").play();
   }
 
   if (scene === "uno") {
     bubble.style.top = "20%";
     bubble.style.left = "45%";
-    bubble.innerText = "+4 again?? 😭";
+    bubble.innerText = "+4 again?? be serious 😭";
     document.getElementById("cardSound").play();
   }
 
   if (scene === "car") {
     bubble.style.top = "20%";
     bubble.style.right = "15%";
-    bubble.innerText = "this is OUR song 🎶";
+    bubble.innerText = "This is OUR song 🎶";
   }
 
   if (scene === "karaoke") {
     bubble.style.bottom = "20%";
     bubble.style.left = "15%";
-    bubble.innerText = "main character energy 🎤";
+    bubble.innerText = "Main character energy 🎤";
   }
 
   if (scene === "dinner") {
     bubble.style.bottom = "20%";
     bubble.style.left = "45%";
-    bubble.innerText = "my favorite person ❤️";
+    bubble.innerText = "My favorite person ❤️";
   }
 
-  clicks++;
+  // Mark this scene as clicked
+  clickedScenes[scene] = true;
 
-  if (clicks >= 5) {
+  // Check if ALL scenes clicked
+  if (
+    clickedScenes.pingpong &&
+    clickedScenes.uno &&
+    clickedScenes.car &&
+    clickedScenes.karaoke &&
+    clickedScenes.dinner
+  ) {
     setTimeout(() => {
       document.getElementById("finalPopup").classList.remove("hidden");
     }, 1000);
   }
-}
-
-function closeFinal() {
-  document.getElementById("finalPopup").classList.add("hidden");
 }
