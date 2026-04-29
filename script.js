@@ -101,5 +101,5 @@ function showFinalMessage() {
 }
 
 function closeFinal() {
-  document.getElementById("finalPopup").classList.add("hidden");
+  document.getElementById("finalPopup").classList.remove("hidden");
 }
