@@ -1,1 +1,95 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: "Comic Sans MS", cursive;
+}
 
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CLICK AREAS (grid layout) */
+.click-area {
+  position: absolute;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.click-area:hover {
+  box-shadow: 0 0 40px rgba(255,100,150,0.7);
+  transform: scale(1.03);
+}
+
+/* positions */
+.pingpong { top: 8%; left: 3%; width: 30%; height: 38%; }
+.uno { top: 8%; left: 35%; width: 30%; height: 38%; }
+.car { top: 8%; right: 3%; width: 30%; height: 38%; }
+.karaoke { bottom: 8%; left: 3%; width: 30%; height: 38%; }
+.dinner { bottom: 8%; left: 35%; width: 30%; height: 38%; }
+
+/* SPEECH BUBBLE */
+.bubble {
+  position: absolute;
+  background: white;
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  animation: pop 0.4s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* FLOATING HEARTS */
+.hearts-bg::before {
+  content: "❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️";
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 100%;
+  font-size: 18px;
+  opacity: 0.4;
+  animation: floatHearts 8s linear infinite;
+}
+
+@keyframes floatHearts {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh); }
+}
+
+/* POPUP */
+#finalPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-box {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  animation: pop 0.5s ease;
+}
