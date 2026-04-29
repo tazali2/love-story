@@ -8,10 +8,10 @@ let clickedScenes = {
 
 let messageParts = {
   pingpong: "I love how we can turn anything into fun 🏓",
-  uno: "Even when we argue over UNO 😭",
-  car: "Every car ride with you feels like our own concert 🎶",
-  karaoke: "You make me feel like the main character 🎤",
-  dinner: "And every moment with you feels like home ❤️"
+  uno: "Even when we argue over UNO and I ALWAYS win😭",
+  car: "Every car ride with you feels like our own concert even though you say you sing better than me 🎶",
+  karaoke: "You make me feel like the only person in the room 🎤",
+  dinner: "And every moment with you feels like home and euphoria❤️"
 };
 
 let musicStarted = false;
