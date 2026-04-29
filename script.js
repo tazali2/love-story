@@ -47,16 +47,15 @@ function showMessage() {
   popup.innerText = messages[scene];
 
   popup.classList.remove("hidden");
+  popup.classList.add("show");
+}
+document.addEventListener("click", function(e) {
+  const popup = document.getElementById("popup");
 
-  setTimeout(() => {
-    popup.classList.add("show");
-  }, 10);
-
-  setTimeout(() => {
+  if (!e.target.closest("#popup") && !e.target.closest("button")) {
     popup.classList.remove("show");
-
     setTimeout(() => {
       popup.classList.add("hidden");
     }, 300);
-  }, 2500);
-}
+  }
+});
