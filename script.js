@@ -20,14 +20,14 @@ function updateImage() {
   const img = document.getElementById("sceneImage");
 
   // fade out
-  img.classList.add("fade-out");
+  img.style.opacity = 0;
 
   setTimeout(() => {
     img.src = "assets/" + scenes[currentScene] + ".png";
 
     // fade in
-    img.classList.remove("fade-out");
-  }, 300);
+    img.style.opacity = 1;
+  }, 200);
 }
 
 function nextScene() {
@@ -57,6 +57,6 @@ function showMessage() {
 
     setTimeout(() => {
       popup.classList.add("hidden");
-    }, 400);
+    }, 300);
   }, 2500);
 }
