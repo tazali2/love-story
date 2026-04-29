@@ -3,9 +3,9 @@ body {
   font-family: Arial;
   text-align: center;
   background: #fff0f6;
-  overflow: hidden;
 }
 
+/* Title */
 h1 {
   margin: 20px;
 }
@@ -17,29 +17,22 @@ h1 {
   align-items: center;
 }
 
-/* IMAGE TRANSITION */
+/* Image */
 #sceneImage {
   width: 80%;
   max-width: 600px;
   border-radius: 20px;
-  transition: opacity 0.5s ease;
-}
-
-.fade-out {
-  opacity: 0;
-}
-
-.fade-in {
-  opacity: 1;
+  margin-bottom: 15px;
+  transition: opacity 0.4s ease;
 }
 
 /* Buttons */
 .buttons {
-  margin-top: 15px;
+  display: flex;
+  gap: 10px;
 }
 
 button {
-  margin: 5px;
   padding: 10px 20px;
   border: none;
   background: hotpink;
@@ -53,44 +46,25 @@ button:hover {
   transform: scale(1.1);
 }
 
-/* POPUP ANIMATION */
-.popup {
+/* Popup */
+#popup {
   position: fixed;
-  bottom: 0;
+  bottom: 20px;
   left: 50%;
-  transform: translate(-50%, 100%);
+  transform: translateX(-50%);
   background: white;
   padding: 15px 25px;
   border-radius: 20px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-  transition: 0.4s ease;
+  opacity: 0;
+  transition: 0.3s;
 }
 
-.popup.show {
-  transform: translate(-50%, -20px);
+/* Show popup */
+#popup.show {
+  opacity: 1;
 }
 
 .hidden {
   display: none;
-}
-
-/* FLOATING HEARTS */
-.hearts {
-  pointer-events: none; /* 🔥 THIS FIXES EVERYTHING */
-}
-
-.hearts::before {
-  content: "❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️";
-  position: absolute;
-  width: 100%;
-  bottom: -50px;
-  font-size: 18px;
-  opacity: 0.4;
-  animation: floatHearts 8s linear infinite;
-  pointer-events: none; /* also add here */
-}
-
-@keyframes floatHearts {
-  from { transform: translateY(0); }
-  to { transform: translateY(-120vh); }
 }
