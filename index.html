@@ -7,37 +7,23 @@
 </head>
 <body>
 
-<div class="container">
+<h1>Our Story 💕</h1>
 
-  <!-- Background image -->
-  <img src="assets/story.png" class="bg">
+<div class="viewer">
 
-  <!-- Clickable areas -->
-  <div class="click-area pingpong" onclick="handleClick('pingpong')"></div>
-  <div class="click-area uno" onclick="handleClick('uno')"></div>
-  <div class="click-area car" onclick="handleClick('car')"></div>
-  <div class="click-area karaoke" onclick="handleClick('karaoke')"></div>
-  <div class="click-area dinner" onclick="handleClick('dinner')"></div>
+  <img id="sceneImage" class="fade" src="assets/pingpong.png">
 
-  <!-- Speech bubble -->
-  <div id="bubble" class="bubble hidden"></div>
-
-</div>
-
-<!-- Final popup -->
-<div id="finalPopup" class="hidden">
-  <div class="popup-box">
-    <h2>I love you ❤️</h2>
-    <p>so so much</p>
-    <p>thank you for being my person</p>
-    <button onclick="closeFinal()">forever & always 💕</button>
+  <div class="buttons">
+    <button onclick="showMessage()">Message 💬</button>
+    <button onclick="nextScene()">Next ➡️</button>
   </div>
+
 </div>
 
-<!-- Audio -->
-<audio id="bgMusic" src="assets/music.mp3" loop></audio>
-<audio id="pingSound" src="assets/ping.mp3"></audio>
-<audio id="cardSound" src="assets/card.mp3"></audio>
+<div id="popup" class="popup hidden"></div>
+
+<!-- floating hearts -->
+<div class="hearts"></div>
 
 <script src="script.js"></script>
 </body>
