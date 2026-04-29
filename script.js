@@ -1,105 +1,62 @@
-let clickedScenes = {
-  pingpong: false,
-  uno: false,
-  car: false,
-  karaoke: false,
-  dinner: false
-};
+let currentScene = 0;
 
-let messageParts = {
+const scenes = [
+  "pingpong",
+  "uno",
+  "car",
+  "karaoke",
+  "dinner"
+];
+
+const messages = {
   pingpong: "I love how we can turn anything into fun 🏓",
-  uno: "Even when we argue over UNO and I ALWAYS win😭",
-  car: "Every car ride with you feels like our own concert even though you say you sing better than me 🎶",
-  karaoke: "You make me feel like the only person in the room 🎤",
-  dinner: "And every moment with you feels like home and euphoria❤️"
+  uno: "Even when we argue over UNO 😭",
+  car: "Every car ride with you feels like our own concert 🎶",
+  karaoke: "You make me feel like the main character 🎤",
+  dinner: "Every moment with you feels like home ❤️"
 };
 
-let musicStarted = false;
+function updateImage() {
+  const img = document.getElementById("sceneImage");
 
-function handleClick(scene) {
-  const bubble = document.getElementById("bubble");
+  // fade out
+  img.classList.add("fade-out");
 
-  // start music once
-  if (!musicStarted) {
-    document.getElementById("bgMusic").play();
-    musicStarted = true;
-  }
-
-  // show bubble
-  bubble.classList.remove("hidden");
-
-  // position + sound
-  if (scene === "pingpong") {
-    bubble.style.top = "20%";
-    bubble.style.left = "15%";
-    document.getElementById("pingSound").play();
-  }
-
-  if (scene === "uno") {
-    bubble.style.top = "20%";
-    bubble.style.left = "45%";
-    document.getElementById("cardSound").play();
-  }
-
-  if (scene === "car") {
-    bubble.style.top = "20%";
-    bubble.style.right = "15%";
-  }
-
-  if (scene === "karaoke") {
-    bubble.style.bottom = "20%";
-    bubble.style.left = "15%";
-  }
-
-  if (scene === "dinner") {
-    bubble.style.bottom = "20%";
-    bubble.style.left = "45%";
-  }
-
-  // show message
-  bubble.innerText = messageParts[scene];
-
-  // mark clicked
-  clickedScenes[scene] = true;
-
-  // hide bubble after delay
   setTimeout(() => {
-    bubble.classList.add("hidden");
-  }, 2500);
+    img.src = "assets/" + scenes[currentScene] + ".png";
 
-  // check if all clicked
-  if (
-    clickedScenes.pingpong &&
-    clickedScenes.uno &&
-    clickedScenes.car &&
-    clickedScenes.karaoke &&
-    clickedScenes.dinner
-  ) {
-    setTimeout(() => {
-      showFinalMessage();
-    }, 1200);
-  }
+    // fade in
+    img.classList.remove("fade-out");
+  }, 300);
 }
 
-function showFinalMessage() {
-  const popup = document.getElementById("finalPopup");
+function nextScene() {
+  currentScene++;
 
-  popup.innerHTML = `
-    <div class="popup-box">
-      <h2>💌</h2>
-      <p><strong>I love you ❤️</strong></p>
-      <p>I love how we can turn anything into fun 🏓</p>
-      <p>Even when we argue over UNO 😭</p>
-      <p>Every car ride with you feels like our own concert 🎶</p>
-      <p>You make me feel like the main character 🎤</p>
-      <p>And every moment with you feels like home ❤️</p>
-      <button onclick="closeFinal()">forever & always 💕</button>
-    </div>
-  `;
+  if (currentScene >= scenes.length) {
+    currentScene = 0;
+  }
+
+  updateImage();
+}
+
+function showMessage() {
+  const popup = document.getElementById("popup");
+  const scene = scenes[currentScene];
+
+  popup.innerText = messages[scene];
 
   popup.classList.remove("hidden");
-}
 
-function closeFinal() {
-  document.getElementById("finalPopup").classList.remove("hidden");
+  setTimeout(() => {
+    popup.classList.add("show");
+  }, 10);
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+
+    setTimeout(() => {
+      popup.classList.add("hidden");
+    }, 400);
+  }, 2500);
 }
