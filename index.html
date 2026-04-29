@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Story 💕</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<div class="container">
+
+  <img src="assets/story.png" class="bg">
+
+  <!-- floating hearts -->
+  <div class="hearts-bg"></div>
+
+  <!-- clickable areas -->
+  <div class="click-area pingpong" onclick="handleClick('pingpong')"></div>
+  <div class="click-area uno" onclick="handleClick('uno')"></div>
+  <div class="click-area car" onclick="handleClick('car')"></div>
+  <div class="click-area karaoke" onclick="handleClick('karaoke')"></div>
+  <div class="click-area dinner" onclick="handleClick('dinner')"></div>
+
+  <!-- speech bubble -->
+  <div id="bubble" class="bubble hidden"></div>
+
+</div>
+
+<!-- popup -->
+<div id="finalPopup" class="hidden">
+  <div class="popup-box">
+    <h2>I love you ❤️</h2>
+    <p>so so much</p>
+    <p>thank you for being my person</p>
+    <button onclick="closeFinal()">forever & always 💕</button>
+  </div>
+</div>
+
+<!-- audio -->
+<audio id="bgMusic" src="assets/music.mp3" loop></audio>
+<audio id="pingSound" src="assets/ping.mp3"></audio>
+<audio id="cardSound" src="assets/card.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
